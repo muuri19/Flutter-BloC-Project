@@ -10,6 +10,7 @@ class FoodList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      width: MediaQuery.of(context).size.width,
       height: 50,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

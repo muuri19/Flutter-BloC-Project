@@ -14,6 +14,11 @@ class RestaurantSearchPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_ios_new_rounded)),
         title: const Text('Pencarian'),
       ),
       body: Column(

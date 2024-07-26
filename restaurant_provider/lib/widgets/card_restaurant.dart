@@ -20,7 +20,7 @@ class CardRestaurant extends StatelessWidget {
           height: 80,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Colors.blue),
+              border: Border.all(width: 1, color: Colors.white),
               borderRadius: BorderRadius.circular(8)),
           child: Row(
             children: [

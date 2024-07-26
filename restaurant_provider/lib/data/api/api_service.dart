@@ -4,6 +4,7 @@ import 'package:d_method/d_method.dart';
 import 'package:restaurant_provider/data/models/restaurant_detail.dart';
 import 'package:restaurant_provider/data/models/search_restaurant.dart';
 
+import '../models/post_review.dart';
 import '../models/restaurant.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,6 +41,30 @@ class ApiService {
       return result;
     }else{
       throw Exception('Error pada fungsi getSeacrhRestaurant');
+    }
+  }
+
+  Future<PostReviewResult> postReview({
+    required String id,
+    required String name,
+    required String review,
+  }) async {
+    final response = await http.post(
+      Uri.parse('$_baseUrl/review'),
+      body: jsonEncode(<String, String>{
+        'id': id,
+        'name': name,
+        'review': review,
+      }),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+    );
+
+    if (response.statusCode == 201) {
+      return PostReviewResult.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed post data');
     }
   }
 }

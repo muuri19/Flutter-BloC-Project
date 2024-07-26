@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restaurant_provider/ui/restaurant_list_page.dart';
@@ -26,15 +24,28 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [
-    BottomNavigationBarItem(
-      icon: Icon(
-          Platform.isIOS ? CupertinoIcons.news : Icons.restaurant_menu_rounded),
-      label: 'Restaurant',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Platform.isIOS ? CupertinoIcons.settings : Icons.settings),
-      label: 'Setting',
-    ),
+    const BottomNavigationBarItem(
+        icon: Icon(
+          Icons.restaurant_menu_outlined,
+          color: Colors.white,
+        ),
+        activeIcon: Icon(
+          Icons.restaurant_menu_outlined,
+          color: Colors.blue,
+        ),
+        label: 'Restaurant',
+        backgroundColor: Colors.white),
+    const BottomNavigationBarItem(
+        icon: Icon(
+          Icons.settings,
+          color: Colors.white,
+        ),
+        activeIcon: Icon(
+          Icons.settings,
+          color: Colors.blue,
+        ),
+        label: 'Setting',
+        backgroundColor: Colors.white),
   ];
 
   void _onBottomNavTapped(int index) {
@@ -47,7 +58,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _listWidget[_bottomNavIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: secondaryColor,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+        selectedItemColor: Colors.amber,
+        unselectedItemColor: Colors.white,
         currentIndex: _bottomNavIndex,
         items: _bottomNavBarItems,
         onTap: _onBottomNavTapped,

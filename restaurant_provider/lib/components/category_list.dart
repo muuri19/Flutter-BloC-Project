@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_provider/data/models/restaurant_detail.dart';
 
-class DrinkList extends StatelessWidget {
+class CategoryList extends StatelessWidget {
   final RestaurantDetail restaurants;
-
-  const DrinkList({super.key, required this.restaurants});
+  const CategoryList({super.key, required this.restaurants});
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +14,20 @@ class DrinkList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemCount: restaurants.menus.drinks.length,
+        itemCount: restaurants.categories.length,
         itemBuilder: (context, index) {
-          return _buildDrinkList(context, restaurants.menus.drinks[index]);
+          return _buildCategoryList(context, restaurants.categories[index]);
         },
       ),
     );
   }
 }
 
-Widget _buildDrinkList(BuildContext context, Category drink) {
+Widget _buildCategoryList(BuildContext context, Category category) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 4),
     child: Chip(
-      label: Text(drink.name),
+      label: Text(category.name),
     ),
   );
 }

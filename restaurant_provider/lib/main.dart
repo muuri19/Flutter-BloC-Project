@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'REST API RESTAURANT',
-        theme: ThemeData.dark(),
+        theme: ThemeData.dark(useMaterial3: true),
         initialRoute: HomePage.routeName,
         routes: {
           HomePage.routeName: (context) => const HomePage(),
@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
           RestaurantSearchPage.routeName: (context) =>
               const RestaurantSearchPage(),
           RestaurantDetailPage.routeName: (context) => RestaurantDetailPage(
-
-                    restaurant: ModalRoute.of(context)!.settings.arguments as Restaurant,
+                restaurant:
+                    ModalRoute.of(context)!.settings.arguments as Restaurant,
               ),
         },
       ),

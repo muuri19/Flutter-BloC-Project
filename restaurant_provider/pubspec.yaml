@@ -42,7 +42,7 @@ dependencies:
   loading_animation_widget: ^1.2.1
   cached_network_image: ^3.3.1
   logger: ^2.4.0
-  d_input: ^0.1.3
+  persistent_bottom_nav_bar: ^6.2.1
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +68,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+
+  # MENU BOTTTOM BAR
+    - assets/menu/restaurant-active.png
+    - assets/menu/restaurant-inactive.png
+    - assets/menu/setting-active.png
+    - assets/menu/setting-inactive.png
+
+
     - assets/icon-location.png
     - assets/icon-no-internet.png
     - assets/icon-rating.png
@@ -75,6 +83,8 @@ flutter:
     - assets/broken-image.png
     - assets/no-data.png
     - assets/food.png
+    - assets/boy.png
+    - assets/success.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

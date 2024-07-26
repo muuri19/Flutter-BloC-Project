@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant_provider/components/category_list.dart';
 import 'package:restaurant_provider/components/drink_list.dart';
 import 'package:restaurant_provider/components/food_list.dart';
 import 'package:restaurant_provider/data/enum/result_state.dart';
 import 'package:restaurant_provider/data/models/restaurant.dart';
 import 'package:restaurant_provider/provider/restaurant_detail_provider.dart';
+import 'package:restaurant_provider/components/bottom_sheet_review.dart';
 
 class DetailRestaurant extends StatelessWidget {
   final Restaurant restaurant;
@@ -19,6 +21,11 @@ class DetailRestaurant extends StatelessWidget {
       } else if (state.state == ResultState.hasData) {
         return Scaffold(
           appBar: AppBar(
+            leading: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: const Icon(Icons.arrow_back_ios_new_rounded)),
             title: Text(restaurant.name),
             centerTitle: true,
           ),
@@ -26,6 +33,8 @@ class DetailRestaurant extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min, // Added
                 children: [
                   Container(
                     height: 250,
@@ -88,31 +97,75 @@ class DetailRestaurant extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   const Divider(
                     color: Colors.white,
                     height: 1,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Text(
                     restaurant.description,
                     textAlign: TextAlign.justify,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   const Divider(
                     color: Colors.white,
                     height: 1,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
+                  const Text('Category : '),
+                  CategoryList(restaurants: state.result.restaurant),
+                  const Text('Food :'),
                   FoodList(restaurants: state.result.restaurant),
-                  DrinkList(restaurants: state.result.restaurant)
+                  const Text('Drink :'),
+                  DrinkList(restaurants: state.result.restaurant),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Divider(
+                    color: Colors.white,
+                    height: 1,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(18),
+                              topRight: Radius.circular(18),
+                            ),
+                          ),
+                          builder: (context) {
+                            return BottomSheetReview(
+                              restaurants: state.result.restaurant,
+                              provider: state,
+                            );
+                          },
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8))),
+                      child: const Text(
+                        'Lihat Review',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

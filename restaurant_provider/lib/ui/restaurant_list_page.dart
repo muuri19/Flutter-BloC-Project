@@ -57,7 +57,7 @@ class RestaurantListPage extends StatelessWidget {
         title: const Text('Restaurant App API'),
         actions: [
           GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.pushNamed(context, RestaurantSearchPage.routeName);
             },
             child: Image.asset(
