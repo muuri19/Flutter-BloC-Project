@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_api_dicoding/bloc/thema/theme_event.dart';
-import 'package:restaurant_api_dicoding/bloc/thema/theme_state.dart';
+import 'package:restaurant_api_dicoding/bloc/thema/thema_event.dart';
+import 'package:restaurant_api_dicoding/bloc/thema/thema_state.dart';
 import 'package:restaurant_api_dicoding/bloc/thema/theme_bloc.dart';
 import 'package:restaurant_api_dicoding/widgets/custom_appbar.dart';
 

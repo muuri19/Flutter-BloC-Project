@@ -12,6 +12,8 @@ class Restaurant2ListPage extends StatefulWidget {
 class _Restaurant2ListPageState extends State<Restaurant2ListPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(appBar: CustomAppbar(title: 'Model 2'));
+    return const Scaffold(
+      appBar: CustomAppbar(title: 'Model 2'),
+    );
   }
 }

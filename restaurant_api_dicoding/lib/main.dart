@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:restaurant_api_dicoding/bloc/thema/thema_state.dart';
 import 'package:restaurant_api_dicoding/bloc/thema/theme_bloc.dart';
-import 'package:restaurant_api_dicoding/bloc/thema/theme_state.dart';
 import 'package:restaurant_api_dicoding/common/app_theme.dart';
-import 'package:restaurant_api_dicoding/pages/detail_restaurant.dart';
 import 'package:restaurant_api_dicoding/pages/restaurant2_list_page.dart';
+
 import 'package:restaurant_api_dicoding/pages/restaurant_list_page.dart';
 import 'package:restaurant_api_dicoding/pages/setting_page.dart';
 import 'package:restaurant_api_dicoding/widgets/bottom_navbar.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               //RESTAURANT MODEL 1 (BLOC STATE MANAGEMENT)
               RestaurantListPage.routeName: (context) =>
                   const RestaurantListPage(),
-              DetailRestaurant.routeName: (context) => const DetailRestaurant(),
+
 
               //RESTAURANT MODEL 2 (PROVIDER STATE MANAGEMENT)
               Restaurant2ListPage.routeName: (context) =>

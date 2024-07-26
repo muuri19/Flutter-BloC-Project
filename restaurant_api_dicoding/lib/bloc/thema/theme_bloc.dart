@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:restaurant_api_dicoding/bloc/thema/thema_event.dart';
+import 'package:restaurant_api_dicoding/bloc/thema/thema_state.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'theme_event.dart';
-import 'theme_state.dart';
+
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   static const String _themePreferenceKey = "theme_preference";

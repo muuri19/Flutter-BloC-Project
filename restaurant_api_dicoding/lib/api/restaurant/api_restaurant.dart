@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:restaurant_api_dicoding/log/logger.dart';
+import 'package:restaurant_api_dicoding/models/restaurant_detail.dart';
 import '../../models/restaurant.dart';
 
 class ApiRestaurant {
@@ -13,7 +14,20 @@ class ApiRestaurant {
       LoggerGlobal.logger.i(dataApiRestaurant);
       return dataApiRestaurant;
     } catch (error) {
-      return RestaurantModel(error: true);
+      LoggerGlobal.logger.e('Error fetching restaurant list: $error');
+      return RestaurantModel(error: true, message: 'Failed to fetch restaurant list');
+    }
+  }
+
+  Future<RestaurantDetail> getRestaurantDetail(String id) async {
+    try {
+      Response response = await _dio.get('$_baseUrl/detail/$id');
+      final dataApiRestaurant = RestaurantDetail.fromJson(response.data);
+      LoggerGlobal.logger.i(dataApiRestaurant);
+      return dataApiRestaurant;
+    } catch (error) {
+      LoggerGlobal.logger.e('Error fetching restaurant detail: $error');
+      return RestaurantDetail(id: id,);
     }
   }
 }

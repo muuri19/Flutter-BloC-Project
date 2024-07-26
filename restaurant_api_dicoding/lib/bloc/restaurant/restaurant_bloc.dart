@@ -22,7 +22,7 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
           emit(RestaurantError(mList.message));
         }
 
-      }on NetworkError{
+      }on RestaurantError{
         LoggerGlobal.logger.e('Failed to fetch data. is your device online?');
         emit(const RestaurantError('Failed to fetch data. is your device online?'));
       }
